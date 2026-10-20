@@ -8,33 +8,23 @@ on:
 permissions:
   contents: read
 
-concurrency:
-  group: resume-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   build:
-    name: Format and verify resume
     runs-on: ubuntu-latest
-    timeout-minutes: 10
     steps:
-      - name: Check out source
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-
-      - name: Set up Python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: typst-community/setup-typst@fee4b65b091cc546f02ce3be15fad8760f38a108 # v5.3.0
         with:
-          python-version: '3.12'
-          cache: pip
-
-      - name: Install dependencies
-        run: python -m pip install -r requirements.txt
-
-      - name: Build and validate PDF
-        run: python scripts/build.py
-
-      - name: Upload formatted resume
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+          typst-version: '0.15.1'
+      - name: Install resume font
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends fonts-crosextra-carlito
+      - name: Compile resume
+        run: |
+          mkdir -p dist
+          typst compile resume.typ dist/Amar-Chandra-Resume.pdf
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           path: dist/Amar-Chandra-Resume.pdf
           archive: false

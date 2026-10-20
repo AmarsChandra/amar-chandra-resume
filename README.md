@@ -1,10 +1,11 @@
 # Amar Chandra Resume
 
+The resume is a single [Typst document](resume.typ). GitHub Actions compiles it directly into a PDF.
+
 ## Download the PDF
 
 Get the resume from [Releases](https://github.com/AmarsChandra/amar-chandra-resume/releases), or [download the latest PDF directly](https://github.com/AmarsChandra/amar-chandra-resume/releases/latest/download/Amar-Chandra-Resume.pdf).
 
-
 ## Font license
 
-Carlito font files are distributed under the SIL Open Font License 1.1 in [fonts/OFL.txt](fonts/OFL.txt). Font source: [google/fonts/ofl/carlito](https://github.com/google/fonts/tree/main/ofl/carlito). This font license applies to the fonts; it does not license the personal resume content.
+Typeset in [Carlito](https://github.com/googlefonts/carlito), a Calibri-compatible font distributed under the [SIL Open Font License](https://github.com/googlefonts/carlito/blob/main/OFL.txt).
