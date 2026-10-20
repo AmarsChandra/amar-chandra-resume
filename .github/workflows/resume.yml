@@ -1,0 +1,50 @@
+name: Build resume
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: resume-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Format and verify resume
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Build and validate PDF
+        run: python scripts/build.py
+
+      - name: Render preview
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends poppler-utils
+          pdftoppm -scale-to 1600 -png -singlefile dist/Amar-Chandra-Resume.pdf dist/Amar-Chandra-Resume
+
+      - name: Upload formatted resume
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: resume
+          path: |
+            dist/Amar-Chandra-Resume.pdf
+            dist/Amar-Chandra-Resume.png
+          if-no-files-found: error
+          retention-days: 90

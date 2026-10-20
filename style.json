@@ -1,0 +1,35 @@
+{
+  "page_size": [612, 792],
+  "left_margin": 36,
+  "right_margin": 36,
+  "bottom_margin": 36,
+  "body_size": 10.5,
+  "line_height": 12.817383,
+  "name_size": 16,
+  "name_baseline": 51.53125,
+  "contact_baseline": 65.723633,
+  "first_section_baseline": 79.99707,
+  "heading_size": 12,
+  "heading_advance": 15.192383,
+  "rule_offset": 1.3,
+  "rule_width": 0.75,
+  "bullet_indent": 36,
+  "bullet_marker_indent": 18,
+  "bullet_radius": 2.25,
+  "link_color": "#1155cc",
+  "section_gap": 18.104492,
+  "section_gap_overrides": {
+    "PROJECTS": 20.104492,
+    "TECHNICAL SKILLS": 18.273438
+  },
+  "bullet_gap": 0,
+  "bullet_gap_overrides": {
+    "PROJECTS": 2
+  },
+  "entry_bullet_gap_overrides": {
+    "Northeastern Electric Racing": 2
+  },
+  "entry_gap_overrides": {
+    "PROJECTS": 2
+  }
+}
