@@ -6,13 +6,14 @@ All resume content lives in one UTF-8 plain-text Markdown file, including contac
 
 ## Download the PDF
 
-Download the [latest released resume (PDF)](https://github.com/AmarsChandra/amar-chandra-resume/releases/latest/download/Amar-Chandra-Resume.pdf), or open the [latest release](https://github.com/AmarsChandra/amar-chandra-resume/releases/latest) for the preview and build details. Sign in to GitHub to access this private repository's downloads.
+Download the [latest released resume (PDF)](https://github.com/AmarsChandra/amar-chandra-resume/releases/latest/download/Amar-Chandra-Resume.pdf), or open the [latest release](https://github.com/AmarsChandra/amar-chandra-resume/releases/latest) for build details. Sign in to GitHub to access this private repository's downloads.
 
-To download a newer CI build that has not been released:
+To download the latest PDF directly from CI:
 
 1. Open **Actions → Build resume** and select the latest successful run for your branch.
-2. Under **Artifacts**, download **resume**.
-3. Unzip it for `Amar-Chandra-Resume.pdf` and its PNG preview.
+2. Under **Artifacts**, download **Amar-Chandra-Resume.pdf**.
+
+The download is the PDF itself; no unzipping is needed.
 
 Artifacts are retained for 90 days. Use **Run workflow** to rebuild an older version whenever needed. Downloading artifacts requires signing in to GitHub.
 
@@ -48,12 +49,6 @@ python scripts/build.py
 ```
 
 The PDF is written to `dist/Amar-Chandra-Resume.pdf`. Generated files are excluded from Git.
-
-Optional preview, if Poppler is installed:
-
-```sh
-pdftoppm -scale-to 1600 -png -singlefile dist/Amar-Chandra-Resume.pdf dist/Amar-Chandra-Resume
-```
 
 ## Formatting and validation
 

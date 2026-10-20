@@ -33,18 +33,10 @@ jobs:
       - name: Build and validate PDF
         run: python scripts/build.py
 
-      - name: Render preview
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends poppler-utils
-          pdftoppm -scale-to 1600 -png -singlefile dist/Amar-Chandra-Resume.pdf dist/Amar-Chandra-Resume
-
       - name: Upload formatted resume
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: resume
-          path: |
-            dist/Amar-Chandra-Resume.pdf
-            dist/Amar-Chandra-Resume.png
+          path: dist/Amar-Chandra-Resume.pdf
+          archive: false
           if-no-files-found: error
           retention-days: 90
