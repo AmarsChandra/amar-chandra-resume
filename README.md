@@ -43,7 +43,7 @@ python -m pip install -r requirements.txt
 python scripts/build.py
 ```
 
-The PDF is written to `dist/Amar-Chandra-Resume.pdf`. You can also use `make build` with the virtual environment active. Generated files are excluded from Git.
+The PDF is written to `dist/Amar-Chandra-Resume.pdf`. Generated files are excluded from Git.
 
 Optional preview, if Poppler is installed:
 
