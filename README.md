@@ -1,7 +1,5 @@
 # Amar Chandra Resume
 
-Edit **[resume.md](resume.md)**. GitHub Actions formats it into a one-page PDF on every push, pull request, or manual run.
-
 ## Download the PDF
 
 Get the resume from [Releases](https://github.com/AmarsChandra/amar-chandra-resume/releases), or [download the latest PDF directly](https://github.com/AmarsChandra/amar-chandra-resume/releases/latest/download/Amar-Chandra-Resume.pdf).
