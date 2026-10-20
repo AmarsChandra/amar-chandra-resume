@@ -6,6 +6,10 @@ All resume content lives in one UTF-8 plain-text Markdown file, including contac
 
 ## Download the PDF
 
+Download the [latest released resume (PDF)](https://github.com/AmarsChandra/amar-chandra-resume/releases/latest/download/Amar-Chandra-Resume.pdf), or open the [latest release](https://github.com/AmarsChandra/amar-chandra-resume/releases/latest) for the preview and build details. Sign in to GitHub to access this private repository's downloads.
+
+To download a newer CI build that has not been released:
+
 1. Open **Actions → Build resume** and select the latest successful run for your branch.
 2. Under **Artifacts**, download **resume**.
 3. Unzip it for `Amar-Chandra-Resume.pdf` and its PNG preview.
