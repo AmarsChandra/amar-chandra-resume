@@ -6,7 +6,11 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
+
+concurrency:
+  group: resume-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -30,3 +34,14 @@ jobs:
           archive: false
           if-no-files-found: error
           retention-days: 90
+      - name: Publish latest PDF
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "resume-${GITHUB_RUN_NUMBER}-${GITHUB_RUN_ATTEMPT}" \
+            dist/Amar-Chandra-Resume.pdf \
+            --target "$GITHUB_SHA" \
+            --title "Resume (CI build ${GITHUB_RUN_NUMBER})" \
+            --notes "PDF from [CI run #${GITHUB_RUN_NUMBER}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}), built from commit ${GITHUB_SHA}." \
+            --latest

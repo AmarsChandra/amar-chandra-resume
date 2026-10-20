@@ -1,6 +1,6 @@
 # Amar Chandra Resume
 
-The resume is a single [Typst document](resume.typ). GitHub Actions compiles it directly into a PDF.
+The resume is a single [Typst document](resume.typ). GitHub Actions compiles it directly into a PDF and publishes a new latest release after every successful push to `main`.
 
 ## Download the PDF
 
